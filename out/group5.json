@@ -1,0 +1,106 @@
+{
+  "reentrancy (TheDAO / SWC-107)": {
+    "vulnerable": {
+      "feasible": true,
+      "reason": "all steps succeeded and attacker balance increased",
+      "attacker_profit_wei": 49999772489054649453,
+      "attacker_start_wei": 9999999543558598186932,
+      "attacker_end_wei": 10049999316047652836385,
+      "steps": [
+        {
+          "description": "attacker.attack{10 ETH}: deposit one chunk then withdraw, re-entering from receive()",
+          "realizes": "anyone --can_call--> withdraw() ; withdraw() --transfers--> ETH (re-entrant)",
+          "tx_hash": "29335a52f74fcb788cdeefb598442e66c35fa1b47531e75ef82eeab7acdde88d",
+          "status": 1,
+          "gas_used": 107261,
+          "error": null
+        },
+        {
+          "description": "attacker.sweep(): move drained ETH to the attacker EOA",
+          "realizes": "extract value to attacker",
+          "tx_hash": "633812e0ce2301a1765a1de8d5f2007de37fc995a4666535450fc30b97b5cc03",
+          "status": 1,
+          "gas_used": 30243,
+          "error": null
+        }
+      ]
+    },
+    "patched": {
+      "feasible": false,
+      "reason": "step reverted (status 0): attacker.attack{10 ETH}: deposit one chunk then withdraw, re-entering from receive()",
+      "attacker_profit_wei": -145300356269367,
+      "attacker_start_wei": 9999999543558620916100,
+      "attacker_end_wei": 9999999398258264646733,
+      "steps": [
+        {
+          "description": "attacker.attack{10 ETH}: deposit one chunk then withdraw, re-entering from receive()",
+          "realizes": "anyone --can_call--> withdraw() ; withdraw() --transfers--> ETH (re-entrant)",
+          "tx_hash": "d25b43c34058868bb7ce383697b41562405d7a161fa23add9ff97b89b0bd4b1c",
+          "status": 0,
+          "gas_used": 86853,
+          "error": null
+        }
+      ]
+    }
+  },
+  "oracle manipulation (bZx / Mango style)": {
+    "vulnerable": {
+      "feasible": true,
+      "reason": "all steps succeeded and attacker balance increased",
+      "attacker_profit_wei": 16999824345804640205,
+      "attacker_start_wei": 10000000000000000000000,
+      "attacker_end_wei": 10016999824345804640205,
+      "steps": [
+        {
+          "description": "attacker.depositCollateral{1 ETH}",
+          "realizes": "anyone --can_call--> depositCollateral()",
+          "tx_hash": "20299f24a4011c85a8f4c13882267fa8406f95b6ccf230befd5d32cd8c4e0f68",
+          "status": 1,
+          "gas_used": 43430,
+          "error": null
+        },
+        {
+          "description": "attacker SpotOracle.swap(900): inflate the spot price borrow() trusts",
+          "realizes": "manipulate the source that borrow() DEPENDS_ON",
+          "tx_hash": "449abb150fa8cf5e4dd13e67727a930ba2e39e3c9ba3d3560db001fbfc8d5a3b",
+          "status": 1,
+          "gas_used": 31662,
+          "error": null
+        },
+        {
+          "description": "attacker.borrow(18 ETH) against 1 ETH collateral",
+          "realizes": "anyone --can_call--> borrow() ; borrow() --transfers--> ETH",
+          "tx_hash": "36f90e5b64d4d5cc75f5fee14678546b745b5ad745f6f29893c2f6b75da83552",
+          "status": 1,
+          "gas_used": 40405,
+          "error": null
+        }
+      ]
+    },
+    "patched": {
+      "feasible": false,
+      "reason": "step reverted (status 0): attacker.borrow(18 ETH) against 1 ETH collateral",
+      "attacker_profit_wei": -1000120462755216997,
+      "attacker_start_wei": 10000000000000000000000,
+      "attacker_end_wei": 9998999879537244783003,
+      "steps": [
+        {
+          "description": "attacker.depositCollateral{1 ETH}",
+          "realizes": "anyone --can_call--> depositCollateral()",
+          "tx_hash": "f2b3b02d367721f7b7cf8d1511606e1f2ffc2a1b2990edc33f5c511730389fa3",
+          "status": 1,
+          "gas_used": 43430,
+          "error": null
+        },
+        {
+          "description": "attacker.borrow(18 ETH) against 1 ETH collateral",
+          "realizes": "anyone --can_call--> borrow() ; borrow() --transfers--> ETH",
+          "tx_hash": "519b3bb2ff899e5f67d8306ad4f0256427038211f95b150ef6fe5e5c6b11aeac",
+          "status": 0,
+          "gas_used": 26117,
+          "error": null
+        }
+      ]
+    }
+  }
+}

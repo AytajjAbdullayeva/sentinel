@@ -1,0 +1,191 @@
+{
+  "reentrancy (vulnerable)": {
+    "status": "scored",
+    "score": 26.774956919190746,
+    "reason": "F.C.L.(w_v.V+w_b.B+w_d.D+w_g.G).K over fully-sourced inputs",
+    "config_version": "score-v1 (2026-09-24)",
+    "target": "reentrancy (vulnerable)",
+    "missing": [],
+    "components": {
+      "F": {
+        "name": "F",
+        "value": 1.0,
+        "origin": "sim:feasible=True",
+        "detail": {}
+      },
+      "C": {
+        "name": "C",
+        "value": 1.0,
+        "origin": "graph:source=public",
+        "detail": {
+          "config": "capability_public"
+        }
+      },
+      "L": {
+        "name": "L",
+        "value": 0.85,
+        "origin": "graph:path_len_edges=2",
+        "detail": {
+          "decay": 0.85
+        }
+      },
+      "V": {
+        "name": "V",
+        "value": 0.6249981898819641,
+        "origin": "sim:profit=49.9999ETH x declared:price=2500",
+        "detail": {
+          "value_usd": 124999.63797639281,
+          "reference_usd": 200000
+        }
+      },
+      "B": {
+        "name": "B",
+        "value": 1.0,
+        "origin": "graph:reachable_assets=1/1",
+        "detail": {}
+      },
+      "D": {
+        "name": "D",
+        "value": 0.0,
+        "origin": "graph:depends_on=0",
+        "detail": {
+          "reference": 3
+        }
+      },
+      "G": {
+        "name": "G",
+        "value": 0.0,
+        "origin": "graph:controlling_authorities=0",
+        "detail": {
+          "reference": 3
+        }
+      },
+      "K": {
+        "name": "K",
+        "value": 0.7,
+        "origin": "evidence:feasibility=simulation,value=declared",
+        "detail": {}
+      }
+    },
+    "sim_feasible": true,
+    "profit_wei": 49999855190557127663
+  },
+  "oracle-manipulation (vulnerable)": {
+    "status": "scored",
+    "score": 20.924131034387567,
+    "reason": "F.C.L.(w_v.V+w_b.B+w_d.D+w_g.G).K over fully-sourced inputs",
+    "config_version": "score-v1 (2026-09-24)",
+    "target": "oracle-manipulation (vulnerable)",
+    "missing": [],
+    "components": {
+      "F": {
+        "name": "F",
+        "value": 1.0,
+        "origin": "sim:feasible=True",
+        "detail": {}
+      },
+      "C": {
+        "name": "C",
+        "value": 1.0,
+        "origin": "graph:source=public",
+        "detail": {
+          "config": "capability_public"
+        }
+      },
+      "L": {
+        "name": "L",
+        "value": 0.85,
+        "origin": "graph:path_len_edges=2",
+        "detail": {
+          "decay": 0.85
+        }
+      },
+      "V": {
+        "name": "V",
+        "value": 0.21249850284541597,
+        "origin": "sim:profit=16.9999ETH x declared:price=2500",
+        "detail": {
+          "value_usd": 42499.700569083194,
+          "reference_usd": 200000
+        }
+      },
+      "B": {
+        "name": "B",
+        "value": 1.0,
+        "origin": "graph:reachable_assets=1/1",
+        "detail": {}
+      },
+      "D": {
+        "name": "D",
+        "value": 0.3333333333333333,
+        "origin": "graph:depends_on=1",
+        "detail": {
+          "reference": 3
+        }
+      },
+      "G": {
+        "name": "G",
+        "value": 0.0,
+        "origin": "graph:controlling_authorities=0",
+        "detail": {
+          "reference": 3
+        }
+      },
+      "K": {
+        "name": "K",
+        "value": 0.7,
+        "origin": "evidence:feasibility=simulation,value=declared",
+        "detail": {}
+      }
+    },
+    "sim_feasible": true,
+    "profit_wei": 16999880227633276831
+  },
+  "reentrancy (patched)": {
+    "status": "infeasible",
+    "score": 0.0,
+    "reason": "simulation proved the path infeasible",
+    "config_version": "score-v1 (2026-09-24)",
+    "target": "reentrancy (patched)",
+    "missing": [],
+    "components": {
+      "F": {
+        "name": "F",
+        "value": 0.0,
+        "origin": "sim:feasible=False",
+        "detail": {}
+      }
+    },
+    "sim_feasible": false,
+    "profit_wei": -89292056494446
+  },
+  "oracle-manipulation (patched)": {
+    "status": "infeasible",
+    "score": 0.0,
+    "reason": "simulation proved the path infeasible",
+    "config_version": "score-v1 (2026-09-24)",
+    "target": "oracle-manipulation (patched)",
+    "missing": [],
+    "components": {
+      "F": {
+        "name": "F",
+        "value": 0.0,
+        "origin": "sim:feasible=False",
+        "detail": {}
+      }
+    },
+    "sim_feasible": false,
+    "profit_wei": -1000071177287411871
+  },
+  "WETH9.withdraw (clean)": {
+    "status": "insufficient_data",
+    "score": null,
+    "reason": "cannot score without: feasibility (requires simulation, Group 5)",
+    "config_version": "score-v1 (2026-09-24)",
+    "target": "WETH9.withdraw",
+    "missing": [
+      "feasibility (requires simulation, Group 5)"
+    ],
+    "components": {}
+  }
+}

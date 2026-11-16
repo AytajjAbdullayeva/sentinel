@@ -1,0 +1,6 @@
+{
+  "version": "sev-v1 (2026-09-24)",
+  "note": "Maps Slither's own impact labels to a 0-100 static severity. The labels are Slither's; only the mapping lives here, versioned, never as code literals.",
+  "impact_scores": {"High": 80, "Medium": 50, "Low": 20, "Informational": 5},
+  "default_threshold": 60
+}

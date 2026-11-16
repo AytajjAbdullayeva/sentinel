@@ -1,0 +1,31 @@
+{
+  "no_change_poll": [],
+  "after_change_poll": [
+    {
+      "kind": "implementation_upgraded",
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "block": 6,
+      "before": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "after": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "description": "proxy implementation changed to 0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "evidence": {
+        "tx_hash": "8a693d762c6268a0049a0362cc17e617b91e9b580de8371fe88ec1e42d71f0a6",
+        "log_index": 0,
+        "topic0": "0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b"
+      }
+    },
+    {
+      "kind": "role_granted",
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "block": 7,
+      "before": null,
+      "after": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "description": "PROPOSER_ROLE granted to 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "evidence": {
+        "tx_hash": "5d86a43f99defc30cb12684f460525ae66e59c4f1eac839d035d5730d6b4137c",
+        "log_index": 0,
+        "topic0": "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d"
+      }
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "WETH-Vault": {
+    "block": 17,
+    "holdings": [
+      {
+        "asset": "ETH",
+        "amount": {
+          "amount": "1234.5",
+          "unit": "ETH",
+          "origin": "onchain",
+          "chain_id": 31337,
+          "block_number": 17,
+          "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "call": "eth_getBalance",
+          "raw": "1234500000000000000000"
+        },
+        "usd": {
+          "amount": "3086250.0",
+          "unit": "USD",
+          "origin": "declared",
+          "operation": "mul",
+          "inputs": [
+            {
+              "amount": "1234.5",
+              "unit": "ETH",
+              "origin": "onchain",
+              "chain_id": 31337,
+              "block_number": 17,
+              "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+              "call": "eth_getBalance",
+              "raw": "1234500000000000000000"
+            },
+            {
+              "amount": "2500",
+              "unit": "USD",
+              "origin": "declared",
+              "badge": "declared, not detected",
+              "declared_by": "BHOSec checkpoint operator",
+              "declared_at": "2026-09-24T12:00:00Z",
+              "note": "Illustrative ETH/USD for a local chain with no price feed; replace with an on-chain feed read once a mainnet fork (RPC key) is available."
+            }
+          ]
+        },
+        "discovered_via": "eth_getBalance"
+      }
+    ],
+    "tvl_usd_computed": {
+      "amount": "3086250.0",
+      "unit": "USD",
+      "origin": "declared",
+      "operation": "sum",
+      "inputs": [
+        {
+          "amount": "3086250.0",
+          "unit": "USD",
+          "origin": "declared",
+          "operation": "mul",
+          "inputs": [
+            {
+              "amount": "1234.5",
+              "unit": "ETH",
+              "origin": "onchain",
+              "chain_id": 31337,
+              "block_number": 17,
+              "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+              "call": "eth_getBalance",
+              "raw": "1234500000000000000000"
+            },
+            {
+              "amount": "2500",
+              "unit": "USD",
+              "origin": "declared",
+              "badge": "declared, not detected",
+              "declared_by": "BHOSec checkpoint operator",
+              "declared_at": "2026-09-24T12:00:00Z",
+              "note": "Illustrative ETH/USD for a local chain with no price feed; replace with an on-chain feed read once a mainnet fork (RPC key) is available."
+            }
+          ]
+        }
+      ]
+    },
+    "unpriced_assets": [],
+    "tvl_usd_declared": null,
+    "authority": []
+  },
+  "DemoAMM": {
+    "block": 17,
+    "holdings": [
+      {
+        "asset": "WETH@0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "amount": {
+          "amount": "400",
+          "unit": "WETH@0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+          "origin": "onchain",
+          "chain_id": 31337,
+          "block_number": 17,
+          "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+          "call": "balanceOf(0xB6cD6924E1F482Fc2AF7C82db284F08C3A60282A)",
+          "raw": "400000000000000000000"
+        },
+        "usd": null,
+        "discovered_via": "state variable 'token0' (storage[slot 6, offset 0] (token0))"
+      },
+      {
+        "asset": "WETH@0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "amount": {
+          "amount": "100",
+          "unit": "WETH@0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+          "origin": "onchain",
+          "chain_id": 31337,
+          "block_number": 17,
+          "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+          "call": "balanceOf(0xB6cD6924E1F482Fc2AF7C82db284F08C3A60282A)",
+          "raw": "100000000000000000000"
+        },
+        "usd": null,
+        "discovered_via": "state variable 'token1' (storage[slot 7, offset 0] (token1))"
+      }
+    ],
+    "tvl_usd_computed": null,
+    "unpriced_assets": [
+      "WETH@0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "WETH@0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+    ],
+    "tvl_usd_declared": {
+      "amount": "5000000",
+      "unit": "USD",
+      "origin": "declared",
+      "badge": "declared, not detected",
+      "declared_by": "BHOSec checkpoint operator",
+      "declared_at": "2026-09-24T12:00:00Z",
+      "note": "Operator-stated TVL for the AMM; its pool tokens have no price source on this chain."
+    },
+    "authority": [
+      {
+        "kind": "multisig",
+        "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "values": {
+          "threshold": 2,
+          "owners": [
+            "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+            "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955"
+          ],
+          "signers_total": 3
+        },
+        "reads": [
+          {
+            "chain_id": 31337,
+            "block_number": 17,
+            "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+            "call": "getThreshold()",
+            "raw": "0x0000000000000000000000000000000000000000000000000000000000000002"
+          },
+          {
+            "chain_id": 31337,
+            "block_number": 17,
+            "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+            "call": "getOwners()",
+            "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000030000000000000000000000009965507d1a55bcc2695c58ba16fb37d819b0a4dc000000000000000000000000976ea74026e726554db657fa54763abd0c3a0aa900000000000000000000000014dc79964da2c08b23698b3d3cc7ca32193d9955"
+          }
+        ]
+      },
+      {
+        "kind": "timelock",
+        "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+        "values": {
+          "min_delay_seconds": 172800
+        },
+        "reads": [
+          {
+            "chain_id": 31337,
+            "block_number": 17,
+            "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+            "call": "getMinDelay()",
+            "raw": "0x000000000000000000000000000000000000000000000000000000000002a300"
+          },
+          {
+            "chain_id": 31337,
+            "block_number": 17,
+            "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+            "call": "PROPOSER_ROLE()",
+            "raw": "0xb09aa5aeb3702cfd50b6b62bc4532604938f21248a27a1d5ca736082b6819cc1"
+          }
+        ]
+      },
+      {
+        "kind": "role_members",
+        "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+        "values": {
+          "roles": {
+            "DEFAULT_ADMIN_ROLE": [
+              "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6"
+            ],
+            "PROPOSER_ROLE": [
+              "0x0165878A594ca255338adfa4d48449f69242Eb8F"
+            ],
+            "CANCELLER_ROLE": [
+              "0x0165878A594ca255338adfa4d48449f69242Eb8F"
+            ],
+            "EXECUTOR_ROLE": [
+              "0x0165878A594ca255338adfa4d48449f69242Eb8F"
+            ]
+          }
+        },
+        "reads": [
+          {
+            "chain_id": 31337,
+            "block_number": 17,
+            "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+            "call": "eth_getLogs RoleGranted|RoleRevoked [0..17]",
+            "raw": "4 logs"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,414 @@
+{
+  "metrics": {
+    "tp": 7,
+    "fp": 3,
+    "fn": 3,
+    "tn": 7,
+    "precision": 0.7,
+    "recall": 0.7,
+    "line_level_recall": 0.6
+  },
+  "cases": [
+    {
+      "case": "reentracy/simple_dao",
+      "vulnerable": true,
+      "target_swc": "SWC-107",
+      "label_lines": [
+        17,
+        18
+      ],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-107"
+      ],
+      "target_hit_lines": [
+        [
+          17
+        ]
+      ],
+      "detector_hits": {
+        "solc-version": "High",
+        "low-level-calls": "High",
+        "reentrancy-eth": "Medium"
+      }
+    },
+    {
+      "case": "reentracy/simple_dao_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-107",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "solc-version": "High",
+        "low-level-calls": "High"
+      }
+    },
+    {
+      "case": "reentracy/modifier_reentrancy",
+      "vulnerable": true,
+      "target_swc": "SWC-107",
+      "label_lines": [
+        14,
+        15
+      ],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-107"
+      ],
+      "target_hit_lines": [
+        [
+          14
+        ]
+      ],
+      "detector_hits": {
+        "solc-version": "High",
+        "reentrancy-no-eth": "Medium",
+        "unused-state": "High"
+      }
+    },
+    {
+      "case": "reentracy/modifier_reentrancy_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-107",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-107"
+      ],
+      "target_hit_lines": [
+        [
+          12
+        ]
+      ],
+      "detector_hits": {
+        "solc-version": "High",
+        "reentrancy-benign": "Medium",
+        "unused-state": "High"
+      }
+    },
+    {
+      "case": "tx_origin/mycontract",
+      "vulnerable": true,
+      "target_swc": "SWC-115",
+      "label_lines": [
+        18
+      ],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-105",
+        "SWC-115"
+      ],
+      "target_hit_lines": [
+        [
+          18
+        ]
+      ],
+      "detector_hits": {
+        "arbitrary-send-eth": "Medium",
+        "solc-version": "High",
+        "missing-zero-check": "Medium",
+        "tx-origin": "Medium"
+      }
+    },
+    {
+      "case": "tx_origin/mycontract_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-115",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "solc-version": "High",
+        "missing-zero-check": "Medium"
+      }
+    },
+    {
+      "case": "delegate_call_to_untrusted_callee/proxy",
+      "vulnerable": true,
+      "target_swc": "SWC-112",
+      "label_lines": [
+        12
+      ],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-112"
+      ],
+      "target_hit_lines": [
+        [
+          12
+        ]
+      ],
+      "detector_hits": {
+        "controlled-delegatecall": "Medium",
+        "external-function": "High",
+        "solc-version": "High",
+        "low-level-calls": "High",
+        "naming-convention": "High"
+      }
+    },
+    {
+      "case": "delegate_call_to_untrusted_callee/proxy_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-112",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-112"
+      ],
+      "target_hit_lines": [
+        [
+          23
+        ]
+      ],
+      "detector_hits": {
+        "controlled-delegatecall": "Medium",
+        "external-function": "High",
+        "solc-version": "High",
+        "low-level-calls": "High",
+        "missing-zero-check": "Medium",
+        "naming-convention": "High"
+      }
+    },
+    {
+      "case": "weak_randomness/guess_the_random_number",
+      "vulnerable": true,
+      "target_swc": "SWC-120",
+      "label_lines": [
+        14
+      ],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-105",
+        "SWC-116",
+        "SWC-132"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "arbitrary-send-eth": "Medium",
+        "deprecated-standards": "High",
+        "solc-version": "High",
+        "incorrect-equality": "High",
+        "timestamp": "Medium"
+      }
+    },
+    {
+      "case": "weak_randomness/guess_the_random_number_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-120",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-132"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "constable-states": "High",
+        "solc-version": "High",
+        "incorrect-equality": "High",
+        "naming-convention": "High",
+        "unused-state": "High"
+      }
+    },
+    {
+      "case": "uninitialised_storage_pointer/crypto_roulette",
+      "vulnerable": true,
+      "target_swc": "SWC-109",
+      "label_lines": [
+        39
+      ],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-107",
+        "SWC-109",
+        "SWC-116",
+        "SWC-120",
+        "SWC-124",
+        "SWC-132"
+      ],
+      "target_hit_lines": [
+        [
+          39
+        ]
+      ],
+      "detector_hits": {
+        "controlled-array-length": "Medium",
+        "weak-prng": "Medium",
+        "constable-states": "High",
+        "deprecated-standards": "High",
+        "solc-version": "High",
+        "incorrect-equality": "High",
+        "reentrancy-unlimited-gas": "Medium",
+        "timestamp": "Medium",
+        "uninitialized-storage": "High"
+      }
+    },
+    {
+      "case": "uninitialised_storage_pointer/crypto_roulette_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-109",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-107",
+        "SWC-116",
+        "SWC-120",
+        "SWC-124",
+        "SWC-132"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "controlled-array-length": "Medium",
+        "weak-prng": "Medium",
+        "constable-states": "High",
+        "deprecated-standards": "High",
+        "solc-version": "High",
+        "incorrect-equality": "High",
+        "reentrancy-unlimited-gas": "Medium",
+        "timestamp": "Medium",
+        "uninitialized-local": "Medium"
+      }
+    },
+    {
+      "case": "shadowing_inherited_state_variables/TokenSale",
+      "vulnerable": true,
+      "target_swc": "SWC-119",
+      "label_lines": [
+        14
+      ],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-119"
+      ],
+      "target_hit_lines": [
+        [
+          14
+        ]
+      ],
+      "detector_hits": {
+        "constable-states": "High",
+        "solc-version": "High",
+        "shadowing-state": "High",
+        "unused-state": "High"
+      }
+    },
+    {
+      "case": "shadowing_inherited_state_variables/TokenSale_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-119",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "solc-version": "High"
+      }
+    },
+    {
+      "case": "integer_overflow_and_underflow/overflow_simple_add",
+      "vulnerable": true,
+      "target_swc": "SWC-101",
+      "label_lines": [
+        7
+      ],
+      "predicted_swcs": [
+        "SWC-102"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "solc-version": "High",
+        "naming-convention": "High"
+      }
+    },
+    {
+      "case": "integer_overflow_and_underflow/overflow_simple_add_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-101",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "solc-version": "High",
+        "naming-convention": "High"
+      }
+    },
+    {
+      "case": "pragma_not_locked/floating_pragma",
+      "vulnerable": true,
+      "target_swc": "SWC-103",
+      "label_lines": [
+        1
+      ],
+      "predicted_swcs": [
+        "SWC-102"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "solc-version": "High"
+      }
+    },
+    {
+      "case": "pragma_not_locked/floating_pragma_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-103",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102"
+      ],
+      "target_hit_lines": [],
+      "detector_hits": {
+        "solc-version": "High"
+      }
+    },
+    {
+      "case": "write_to_arbitrary_storage_location/arbitrary_location_write_simple",
+      "vulnerable": true,
+      "target_swc": "SWC-124",
+      "label_lines": [
+        26
+      ],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-124"
+      ],
+      "target_hit_lines": [
+        [
+          16
+        ]
+      ],
+      "detector_hits": {
+        "controlled-array-length": "Medium",
+        "solc-version": "High",
+        "naming-convention": "High",
+        "tautology": "High"
+      }
+    },
+    {
+      "case": "write_to_arbitrary_storage_location/arbitrary_location_write_simple_fixed",
+      "vulnerable": false,
+      "target_swc": "SWC-124",
+      "label_lines": [],
+      "predicted_swcs": [
+        "SWC-102",
+        "SWC-124"
+      ],
+      "target_hit_lines": [
+        [
+          16
+        ]
+      ],
+      "detector_hits": {
+        "controlled-array-length": "Medium",
+        "solc-version": "High",
+        "naming-convention": "High"
+      }
+    }
+  ]
+}

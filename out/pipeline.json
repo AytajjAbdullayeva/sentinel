@@ -1,0 +1,50 @@
+[
+  {
+    "name": "WETH9",
+    "compiler": "0.5.17",
+    "nodes": 12,
+    "edges": 16,
+    "patterns": [
+      "reentrancy"
+    ],
+    "score": null
+  },
+  {
+    "name": "UniswapV2Pair",
+    "compiler": "0.5.16",
+    "nodes": 32,
+    "edges": 37,
+    "patterns": [],
+    "score": null
+  },
+  {
+    "name": "reentrancy",
+    "compiler": "0.8.20",
+    "nodes": 6,
+    "edges": 7,
+    "patterns": [
+      "reentrancy"
+    ],
+    "score": "26.77"
+  },
+  {
+    "name": "oracle-manipulation",
+    "compiler": "0.8.20",
+    "nodes": 12,
+    "edges": 15,
+    "patterns": [
+      "oracle_manipulation"
+    ],
+    "score": "20.92"
+  },
+  {
+    "name": "governance-treasury",
+    "compiler": "0.8.20",
+    "nodes": 9,
+    "edges": 9,
+    "patterns": [
+      "governance_takeover"
+    ],
+    "score": null
+  }
+]

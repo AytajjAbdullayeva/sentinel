@@ -1,0 +1,10 @@
+{
+  "declared_by": "BHOSec checkpoint operator",
+  "declared_at": "2026-09-24T12:00:00Z",
+  "prices_usd": {
+    "ETH": {"usd": "2500", "note": "Illustrative ETH/USD for a local chain with no price feed; replace with an on-chain feed read once a mainnet fork (RPC key) is available."}
+  },
+  "tvl_usd": {
+    "DemoAMM": {"usd": "5000000", "note": "Operator-stated TVL for the AMM; its pool tokens have no price source on this chain."}
+  }
+}

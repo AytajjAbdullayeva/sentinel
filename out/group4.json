@@ -1,0 +1,597 @@
+{
+  "reentrancy": {
+    "addresses": {
+      "ReentrantVault": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+    },
+    "nodes": 6,
+    "edges": 7,
+    "patterns": [
+      {
+        "pattern": "reentrancy",
+        "where": "ReentrantVault.withdraw()",
+        "evidence": [
+          "slither:reentrancy-eth@ReentrantVault.sol:[16]",
+          "transfer-edge:('7b0ea3652bd6e812',)",
+          "reachable-by:anyone via actor:anyone -> fn:ReentrantVault.withdraw() -> asset:ETH"
+        ]
+      }
+    ],
+    "graph": {
+      "nodes": [
+        {
+          "id": "actor:anyone",
+          "type": "actor",
+          "label": "anyone",
+          "attrs": {}
+        },
+        {
+          "id": "contract:ReentrantVault",
+          "type": "contract",
+          "label": "ReentrantVault",
+          "attrs": {}
+        },
+        {
+          "id": "fn:ReentrantVault.deposit()",
+          "type": "function",
+          "label": "ReentrantVault.deposit()",
+          "attrs": {
+            "protected": false,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "fn:ReentrantVault.withdraw()",
+          "type": "function",
+          "label": "ReentrantVault.withdraw()",
+          "attrs": {
+            "protected": false,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "asset:ETH",
+          "type": "asset",
+          "label": "ETH",
+          "attrs": {
+            "token": null
+          }
+        },
+        {
+          "id": "contract:dep:msg.sender",
+          "type": "contract",
+          "label": "low_level_call:msg.sender",
+          "attrs": {}
+        }
+      ],
+      "edges": [
+        {
+          "src": "contract:ReentrantVault",
+          "dst": "fn:ReentrantVault.deposit()",
+          "type": "declares",
+          "provenance": [
+            "97bf2e1653de32c9"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "actor:anyone",
+          "dst": "fn:ReentrantVault.deposit()",
+          "type": "can_call",
+          "provenance": [
+            "97bf2e1653de32c9"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:ReentrantVault",
+          "dst": "fn:ReentrantVault.withdraw()",
+          "type": "declares",
+          "provenance": [
+            "4d0cd29ba39e15ea"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "actor:anyone",
+          "dst": "fn:ReentrantVault.withdraw()",
+          "type": "can_call",
+          "provenance": [
+            "4d0cd29ba39e15ea"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:ReentrantVault",
+          "dst": "asset:ETH",
+          "type": "holds",
+          "provenance": [
+            "onchain:eth_getBalance@0x5FbDB2315678afecb367f032d93F642f64180aa3"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "fn:ReentrantVault.withdraw()",
+          "dst": "contract:dep:msg.sender",
+          "type": "calls",
+          "provenance": [
+            "f69bb8241ec41715"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "fn:ReentrantVault.withdraw()",
+          "dst": "asset:ETH",
+          "type": "transfers",
+          "provenance": [
+            "7b0ea3652bd6e812"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        }
+      ]
+    }
+  },
+  "oracle_manipulation": {
+    "addresses": {
+      "SpotOracle": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "LendingPool": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+    },
+    "nodes": 12,
+    "edges": 15,
+    "patterns": [
+      {
+        "pattern": "oracle_manipulation",
+        "where": "LendingPool.borrow(uint256)",
+        "evidence": [
+          "depends-on:oracle:oracle via ('5fa75a0ca1fa5265',)",
+          "borrower-reachable-by-anyone-and-moves-value"
+        ]
+      }
+    ],
+    "graph": {
+      "nodes": [
+        {
+          "id": "actor:anyone",
+          "type": "actor",
+          "label": "anyone",
+          "attrs": {}
+        },
+        {
+          "id": "contract:SpotOracle",
+          "type": "contract",
+          "label": "SpotOracle",
+          "attrs": {}
+        },
+        {
+          "id": "contract:LendingPool",
+          "type": "contract",
+          "label": "LendingPool",
+          "attrs": {}
+        },
+        {
+          "id": "fn:SpotOracle.setReserves(uint256,uint256)",
+          "type": "function",
+          "label": "SpotOracle.setReserves(uint256,uint256)",
+          "attrs": {
+            "protected": false,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "fn:SpotOracle.swap(uint256)",
+          "type": "function",
+          "label": "SpotOracle.swap(uint256)",
+          "attrs": {
+            "protected": false,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "fn:SpotOracle.getPrice()",
+          "type": "function",
+          "label": "SpotOracle.getPrice()",
+          "attrs": {
+            "protected": false,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "fn:LendingPool.depositCollateral()",
+          "type": "function",
+          "label": "LendingPool.depositCollateral()",
+          "attrs": {
+            "protected": false,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "fn:LendingPool.borrow(uint256)",
+          "type": "function",
+          "label": "LendingPool.borrow(uint256)",
+          "attrs": {
+            "protected": false,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "asset:ETH",
+          "type": "asset",
+          "label": "ETH",
+          "attrs": {
+            "token": null
+          }
+        },
+        {
+          "id": "fn:LendingPool.constructor(address)",
+          "type": "function",
+          "label": "LendingPool.constructor(address)",
+          "attrs": {}
+        },
+        {
+          "id": "contract:dep:oracle",
+          "type": "contract",
+          "label": "oracle:oracle",
+          "attrs": {}
+        },
+        {
+          "id": "contract:dep:msg.sender",
+          "type": "contract",
+          "label": "low_level_call:msg.sender",
+          "attrs": {}
+        }
+      ],
+      "edges": [
+        {
+          "src": "contract:SpotOracle",
+          "dst": "fn:SpotOracle.setReserves(uint256,uint256)",
+          "type": "declares",
+          "provenance": [
+            "7d9a720d19416f74"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "actor:anyone",
+          "dst": "fn:SpotOracle.setReserves(uint256,uint256)",
+          "type": "can_call",
+          "provenance": [
+            "7d9a720d19416f74"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:SpotOracle",
+          "dst": "fn:SpotOracle.swap(uint256)",
+          "type": "declares",
+          "provenance": [
+            "4dbb9c83218851c1"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "actor:anyone",
+          "dst": "fn:SpotOracle.swap(uint256)",
+          "type": "can_call",
+          "provenance": [
+            "4dbb9c83218851c1"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:SpotOracle",
+          "dst": "fn:SpotOracle.getPrice()",
+          "type": "declares",
+          "provenance": [
+            "ed731b732fc8007a"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "actor:anyone",
+          "dst": "fn:SpotOracle.getPrice()",
+          "type": "can_call",
+          "provenance": [
+            "ed731b732fc8007a"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:LendingPool",
+          "dst": "fn:LendingPool.depositCollateral()",
+          "type": "declares",
+          "provenance": [
+            "a46c4bf798a031d4"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "actor:anyone",
+          "dst": "fn:LendingPool.depositCollateral()",
+          "type": "can_call",
+          "provenance": [
+            "a46c4bf798a031d4"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:LendingPool",
+          "dst": "fn:LendingPool.borrow(uint256)",
+          "type": "declares",
+          "provenance": [
+            "b068733c83820b66"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "actor:anyone",
+          "dst": "fn:LendingPool.borrow(uint256)",
+          "type": "can_call",
+          "provenance": [
+            "b068733c83820b66"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:LendingPool",
+          "dst": "asset:ETH",
+          "type": "holds",
+          "provenance": [
+            "onchain:eth_getBalance@0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:LendingPool",
+          "dst": "fn:LendingPool.constructor(address)",
+          "type": "declares",
+          "provenance": [
+            "bc033774e6cf7449"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "fn:LendingPool.borrow(uint256)",
+          "dst": "contract:dep:oracle",
+          "type": "depends_on",
+          "provenance": [
+            "5fa75a0ca1fa5265"
+          ],
+          "weight": 1.0,
+          "attrs": {
+            "read": "getPrice"
+          }
+        },
+        {
+          "src": "fn:LendingPool.borrow(uint256)",
+          "dst": "contract:dep:msg.sender",
+          "type": "calls",
+          "provenance": [
+            "e86a38e9d20ef97c"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "fn:LendingPool.borrow(uint256)",
+          "dst": "asset:ETH",
+          "type": "transfers",
+          "provenance": [
+            "aad08ad789f52a4e"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        }
+      ]
+    }
+  },
+  "governance_takeover": {
+    "addresses": {
+      "GovTreasury": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"
+    },
+    "nodes": 9,
+    "edges": 10,
+    "patterns": [
+      {
+        "pattern": "governance_takeover",
+        "where": "privileged caller of GovTreasury",
+        "evidence": [
+          "controls-then-transfers to ETH",
+          "path: auth:modifier:GovTreasury -> fn:GovTreasury.withdraw(address,uint256) -> asset:ETH"
+        ]
+      }
+    ],
+    "graph": {
+      "nodes": [
+        {
+          "id": "actor:anyone",
+          "type": "actor",
+          "label": "anyone",
+          "attrs": {}
+        },
+        {
+          "id": "contract:GovTreasury",
+          "type": "contract",
+          "label": "GovTreasury",
+          "attrs": {}
+        },
+        {
+          "id": "fn:GovTreasury.receive()",
+          "type": "function",
+          "label": "GovTreasury.receive()",
+          "attrs": {
+            "protected": false,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "fn:GovTreasury.setGovernor(address)",
+          "type": "function",
+          "label": "GovTreasury.setGovernor(address)",
+          "attrs": {
+            "protected": true,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "fn:GovTreasury.withdraw(address,uint256)",
+          "type": "function",
+          "label": "GovTreasury.withdraw(address,uint256)",
+          "attrs": {
+            "protected": true,
+            "visibility": "external"
+          }
+        },
+        {
+          "id": "asset:ETH",
+          "type": "asset",
+          "label": "ETH",
+          "attrs": {
+            "token": null
+          }
+        },
+        {
+          "id": "fn:GovTreasury.constructor(address)",
+          "type": "function",
+          "label": "GovTreasury.constructor(address)",
+          "attrs": {}
+        },
+        {
+          "id": "contract:dep:to",
+          "type": "contract",
+          "label": "low_level_call:to",
+          "attrs": {}
+        },
+        {
+          "id": "auth:modifier:GovTreasury",
+          "type": "authority",
+          "label": "privileged caller of GovTreasury",
+          "attrs": {
+            "modifiers": [
+              "onlyGovernor"
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "src": "contract:GovTreasury",
+          "dst": "fn:GovTreasury.receive()",
+          "type": "declares",
+          "provenance": [
+            "79a0e9c11c48528a"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "actor:anyone",
+          "dst": "fn:GovTreasury.receive()",
+          "type": "can_call",
+          "provenance": [
+            "79a0e9c11c48528a"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:GovTreasury",
+          "dst": "fn:GovTreasury.setGovernor(address)",
+          "type": "declares",
+          "provenance": [
+            "64f3569d3cbefe34"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:GovTreasury",
+          "dst": "fn:GovTreasury.withdraw(address,uint256)",
+          "type": "declares",
+          "provenance": [
+            "2251c9bd059330f3"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:GovTreasury",
+          "dst": "asset:ETH",
+          "type": "holds",
+          "provenance": [
+            "onchain:eth_getBalance@0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "contract:GovTreasury",
+          "dst": "fn:GovTreasury.constructor(address)",
+          "type": "declares",
+          "provenance": [
+            "cbd787491721b7b0"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "fn:GovTreasury.withdraw(address,uint256)",
+          "dst": "contract:dep:to",
+          "type": "calls",
+          "provenance": [
+            "d1211f8ee41c6215"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "fn:GovTreasury.withdraw(address,uint256)",
+          "dst": "asset:ETH",
+          "type": "transfers",
+          "provenance": [
+            "0bc9636e1613f4c2"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "auth:modifier:GovTreasury",
+          "dst": "fn:GovTreasury.setGovernor(address)",
+          "type": "controls",
+          "provenance": [
+            "64f3569d3cbefe34"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        },
+        {
+          "src": "auth:modifier:GovTreasury",
+          "dst": "fn:GovTreasury.withdraw(address,uint256)",
+          "type": "controls",
+          "provenance": [
+            "2251c9bd059330f3"
+          ],
+          "weight": 1.0,
+          "attrs": {}
+        }
+      ]
+    }
+  }
+}

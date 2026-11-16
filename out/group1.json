@@ -1,0 +1,187 @@
+{
+  "contracts/WETH9.sol:WETH9": {
+    "compiler": "0.5.17",
+    "functions": 11,
+    "assets": null,
+    "assets_status": "not_analyzed"
+  },
+  "contracts/UniswapV2Pair.sol:UniswapV2Pair": {
+    "compiler": "0.5.16",
+    "functions": 27,
+    "assets": null,
+    "assets_status": "not_analyzed"
+  },
+  "contracts/proxy/ERC1967/ERC1967Proxy.sol:ERC1967Proxy": {
+    "compiler": "0.8.37",
+    "functions": 0,
+    "assets": null,
+    "assets_status": "not_analyzed"
+  },
+  "contracts/mocks/proxy/UUPSUpgradeableMock.sol:UUPSUpgradeableMock": {
+    "compiler": "0.8.37",
+    "functions": 5,
+    "assets": null,
+    "assets_status": "not_analyzed"
+  },
+  "WETH9": {
+    "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "chain_id": 31337,
+    "block_number": 7,
+    "is_proxy": false,
+    "standard": null,
+    "implementation": null,
+    "admin": null,
+    "beacon": null,
+    "implementation_is_uups": null,
+    "reads": [
+      {
+        "name": "eip1967.implementation",
+        "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1967.admin",
+        "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1967.beacon",
+        "slot": "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1822.proxiable",
+        "slot": "0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      }
+    ],
+    "implementation_identified_as": []
+  },
+  "UniswapV2Pair": {
+    "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "chain_id": 31337,
+    "block_number": 7,
+    "is_proxy": false,
+    "standard": null,
+    "implementation": null,
+    "admin": null,
+    "beacon": null,
+    "implementation_is_uups": null,
+    "reads": [
+      {
+        "name": "eip1967.implementation",
+        "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1967.admin",
+        "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1967.beacon",
+        "slot": "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1822.proxiable",
+        "slot": "0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      }
+    ],
+    "implementation_identified_as": []
+  },
+  "ERC1967Proxy(UUPS)": {
+    "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "chain_id": 31337,
+    "block_number": 7,
+    "is_proxy": true,
+    "standard": "EIP-1967",
+    "implementation": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "admin": null,
+    "beacon": null,
+    "implementation_is_uups": true,
+    "reads": [
+      {
+        "name": "eip1967.implementation",
+        "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+        "raw": "0x0000000000000000000000009fe46736679d2d9a65f0992f2272de9f3c7fa6e0",
+        "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+      },
+      {
+        "name": "eip1967.admin",
+        "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1967.beacon",
+        "slot": "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1822.proxiable",
+        "slot": "0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      }
+    ],
+    "implementation_identified_as": [
+      "contracts/mocks/proxy/UUPSUpgradeableMock.sol:UUPSUpgradeableMock"
+    ]
+  },
+  "BeaconProxy": {
+    "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+    "chain_id": 31337,
+    "block_number": 7,
+    "is_proxy": true,
+    "standard": "EIP-1967 beacon",
+    "implementation": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+    "admin": null,
+    "beacon": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+    "implementation_is_uups": false,
+    "reads": [
+      {
+        "name": "eip1967.implementation",
+        "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1967.admin",
+        "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      },
+      {
+        "name": "eip1967.beacon",
+        "slot": "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50",
+        "raw": "0x0000000000000000000000005fc8d32690cc91d4c39d9d3abcbd16989f875707",
+        "address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
+      },
+      {
+        "name": "eip1822.proxiable",
+        "slot": "0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7",
+        "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "address": null
+      }
+    ],
+    "implementation_identified_as": [
+      "contracts/mocks/proxy/UUPSUpgradeableMock.sol:NonUpgradeableMock"
+    ]
+  },
+  "_addresses": {
+    "impl_uups": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "impl_plain": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+    "beacon": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
+  }
+}

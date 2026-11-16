@@ -1,0 +1,115 @@
+{
+  "reentrancy": {
+    "target": "reentrancy",
+    "prose": "[stub-narrative | offline, no API key] - Starting from ReentrantVault.withdraw(), an external caller (anyone) can reach ETH. [evidence: 4d0cd29ba39e15ea, 7b0ea3652bd6e812] - low-level-calls (Informational) is reported at ReentrantVault.sol:[16] on the attack path. [evidence: 1d573c890d864af5] - reentrancy-eth (High) is reported at ReentrantVault.sol:[16] on the attack path. [evidence: 3e054b033b127bac] - Simulation on a local EVM executed the path and the attacker profited 49.9998 ETH. [evidence: 3f3229d245a0b2ba0ea389c4749de0a1c477b42a1360164cbcf7b30e8231b9bf, 4f78df4bd65abae6be4d116b77d8849a8bddba2ca472a4edc20c801a311f8a9d] - The risk score is 26.77, composed from F, C, L, V, B, D, G, K. [evidence: sim:feasible=True, graph:source=public, graph:path_len_edges=2, sim:profit=49.9998ETH x declared:price=2500, graph:reachable_assets=1/1, graph:depends_on=0, graph:controlling_authorities=0, evidence:feasibility=simulation,value=declared]",
+    "claims": [
+      {
+        "text": "Starting from ReentrantVault.withdraw(), an external caller (anyone) can reach ETH.",
+        "evidence": [
+          "4d0cd29ba39e15ea",
+          "7b0ea3652bd6e812"
+        ]
+      },
+      {
+        "text": "low-level-calls (Informational) is reported at ReentrantVault.sol:[16] on the attack path.",
+        "evidence": [
+          "1d573c890d864af5"
+        ]
+      },
+      {
+        "text": "reentrancy-eth (High) is reported at ReentrantVault.sol:[16] on the attack path.",
+        "evidence": [
+          "3e054b033b127bac"
+        ]
+      },
+      {
+        "text": "Simulation on a local EVM executed the path and the attacker profited 49.9998 ETH.",
+        "evidence": [
+          "3f3229d245a0b2ba0ea389c4749de0a1c477b42a1360164cbcf7b30e8231b9bf",
+          "4f78df4bd65abae6be4d116b77d8849a8bddba2ca472a4edc20c801a311f8a9d"
+        ]
+      },
+      {
+        "text": "The risk score is 26.77, composed from F, C, L, V, B, D, G, K.",
+        "evidence": [
+          "sim:feasible=True",
+          "graph:source=public",
+          "graph:path_len_edges=2",
+          "sim:profit=49.9998ETH x declared:price=2500",
+          "graph:reachable_assets=1/1",
+          "graph:depends_on=0",
+          "graph:controlling_authorities=0",
+          "evidence:feasibility=simulation,value=declared"
+        ]
+      }
+    ],
+    "removed": []
+  },
+  "oracle_manipulation": {
+    "target": "oracle_manipulation",
+    "prose": "[stub-narrative | offline, no API key] - Starting from LendingPool.borrow(uint256), an external caller (anyone) can reach ETH. [evidence: b068733c83820b66, aad08ad789f52a4e] - low-level-calls (Informational) is reported at OracleLending.sol:[47] on the attack path. [evidence: 72df005de7b10102] - Simulation on a local EVM executed the path and the attacker profited 16.9999 ETH. [evidence: 200055fff8b63e0e29f6368dc7aa0d5ddf6d20b33beb62007d3af0329bcf83d4, 829d50b33082e3aa21f5ab3d959ebbb110c176d9322fb0111e7d37718bf46473, f646eb6a83c838215d12d936dc0366589de537010feca1b8a00bea40ef5947e1] - The risk score is 20.92, composed from F, C, L, V, B, D, G, K. [evidence: sim:feasible=True, graph:source=public, graph:path_len_edges=2, sim:profit=16.9999ETH x declared:price=2500, graph:reachable_assets=1/1, graph:depends_on=1, graph:controlling_authorities=0, evidence:feasibility=simulation,value=declared]",
+    "claims": [
+      {
+        "text": "Starting from LendingPool.borrow(uint256), an external caller (anyone) can reach ETH.",
+        "evidence": [
+          "b068733c83820b66",
+          "aad08ad789f52a4e"
+        ]
+      },
+      {
+        "text": "low-level-calls (Informational) is reported at OracleLending.sol:[47] on the attack path.",
+        "evidence": [
+          "72df005de7b10102"
+        ]
+      },
+      {
+        "text": "Simulation on a local EVM executed the path and the attacker profited 16.9999 ETH.",
+        "evidence": [
+          "200055fff8b63e0e29f6368dc7aa0d5ddf6d20b33beb62007d3af0329bcf83d4",
+          "829d50b33082e3aa21f5ab3d959ebbb110c176d9322fb0111e7d37718bf46473",
+          "f646eb6a83c838215d12d936dc0366589de537010feca1b8a00bea40ef5947e1"
+        ]
+      },
+      {
+        "text": "The risk score is 20.92, composed from F, C, L, V, B, D, G, K.",
+        "evidence": [
+          "sim:feasible=True",
+          "graph:source=public",
+          "graph:path_len_edges=2",
+          "sim:profit=16.9999ETH x declared:price=2500",
+          "graph:reachable_assets=1/1",
+          "graph:depends_on=1",
+          "graph:controlling_authorities=0",
+          "evidence:feasibility=simulation,value=declared"
+        ]
+      }
+    ],
+    "removed": []
+  },
+  "governance": {
+    "target": "governance",
+    "prose": "[stub-narrative | offline, no API key] - Starting from GovTreasury.withdraw(address,uint256), 'privileged caller of GovTreasury' can reach ETH. [evidence: 2251c9bd059330f3, 0bc9636e1613f4c2] - low-level-calls (Informational) is reported at GovTreasury.sol:[26] on the attack path. [evidence: 97c7190e55cdf704]",
+    "claims": [
+      {
+        "text": "Starting from GovTreasury.withdraw(address,uint256), 'privileged caller of GovTreasury' can reach ETH.",
+        "evidence": [
+          "2251c9bd059330f3",
+          "0bc9636e1613f4c2"
+        ]
+      },
+      {
+        "text": "low-level-calls (Informational) is reported at GovTreasury.sol:[26] on the attack path.",
+        "evidence": [
+          "97c7190e55cdf704"
+        ]
+      }
+    ],
+    "removed": []
+  },
+  "hallucination_test": {
+    "injected": "The contract also contains a hidden owner backdoor that steals all deposits.",
+    "removed": true,
+    "in_output": false,
+    "in_prose": false
+  }
+}

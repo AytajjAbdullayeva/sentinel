@@ -1,0 +1,19 @@
+{
+  "version": "score-v1 (2026-09-24)",
+  "note": "All scoring weights and normalization references live here, never as literals in code. Weights w_* sum to 1.",
+  "w_value": 0.4,
+  "w_blast": 0.2,
+  "w_dependency": 0.2,
+  "w_governance": 0.2,
+  "capability_public": 1.0,
+  "capability_privileged": 0.3,
+  "length_decay": 0.85,
+  "value_reference_usd": 200000,
+  "dependency_reference": 3,
+  "governance_reference": 3,
+  "k_sim_proven": 1.0,
+  "k_static_only": 0.4,
+  "k_value_onchain": 1.0,
+  "k_value_declared": 0.7,
+  "scale": 100
+}
